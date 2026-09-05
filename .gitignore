@@ -1,51 +1,12 @@
 ```
-# Dependencies
 node_modules/
-
-# Build artifacts
 dist/
 build/
-target/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual environments
-venv/
-.venv/
-env/
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Environment variables
 .env
 .env.local
-.env.*
-
-# IDE specific
+*.env.*
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# Coverage reports
-coverage/
-htmlcov/
-
-# Distribution / packaging
-.pytest_cache/
-.mypy_cache/
-
+*.log
+*.tmp
 ```
