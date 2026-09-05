@@ -1,0 +1,396 @@
+.script-tab {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Keyword Section */
+.keyword-section {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.keyword-section label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.keyword-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.keyword-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.keyword-hint {
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+/* Generate Section */
+.generate-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.approval-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.approval-notice svg {
+  color: #28a745;
+}
+
+/* Thematic Script */
+.thematic-script {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.thematic-script h3 {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.thematic-script p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Timeline Section */
+.timeline-section {
+  margin-bottom: 32px;
+}
+
+.timeline-header {
+  margin-bottom: 20px;
+}
+
+.timeline-header h2 {
+  font-size: 1.25rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Timeline Visual */
+.timeline-visual {
+  display: flex;
+  height: 60px;
+  background: #f0f0f0;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-clip {
+  position: relative;
+  background: #007bff;
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.timeline-clip:hover {
+  background: #0056b3;
+}
+
+.clip-label {
+  font-weight: 600;
+}
+
+.clip-duration {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+/* Clips List */
+.clips-list {
+  padding: 16px;
+}
+
+.clip-card {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.clip-card:last-child {
+  margin-bottom: 0;
+}
+
+.clip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.clip-header h4 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.duration-edit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.duration-input {
+  width: 80px;
+  padding: 6px 10px;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.save-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #28a745;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.save-btn:hover {
+  background: #218838;
+}
+
+.edit-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #6c757d;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.edit-btn:hover {
+  background: #5a6268;
+}
+
+/* Transitions */
+.clip-transitions {
+  margin-bottom: 12px;
+}
+
+.clip-transitions h5 {
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.transition-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+}
+
+.transition-tag:last-child {
+  margin-bottom: 0;
+}
+
+.layer-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.layer-background {
+  background: #dc3545;
+  color: white;
+}
+
+.layer-subject {
+  background: #007bff;
+  color: white;
+}
+
+.layer-effects {
+  background: #ffc107;
+  color: #333;
+}
+
+.layer-typography {
+  background: #6f42c1;
+  color: white;
+}
+
+.transition-desc {
+  color: var(--text);
+  font-style: italic;
+  margin-left: auto;
+}
+
+/* Typography */
+.clip-typography {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #e7f3ff;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #0056b3;
+}
+
+.clip-typography svg {
+  color: #6f42c1;
+}
+
+/* Focal Point */
+.clip-focal {
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+/* Approve Section */
+.approve-section {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 40px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.empty-state svg {
+  color: #6f42c1;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--text);
+}
+
+/* Tab Actions */
+.tab-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.proceed-btn {
+  padding: 12px 32px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.proceed-btn:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.proceed-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Action Button Base */
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+.action-btn.primary:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

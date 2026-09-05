@@ -1,0 +1,264 @@
+.boot-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.boot-content {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.boot-content.wizard {
+  text-align: left;
+}
+
+.spinner-large {
+  width: 64px;
+  height: 64px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent, #00d4ff);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.success-icon {
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.warning-icon {
+  color: #ff9800;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wizard-intro {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.model-list {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.model-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.model-item:last-child {
+  border-bottom: none;
+}
+
+.model-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.model-info p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.model-size {
+  font-size: 0.8rem;
+  color: var(--accent, #00d4ff);
+}
+
+.total-size {
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--accent, #00d4ff);
+}
+
+.wizard-actions,
+.unlock-actions,
+.download-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.action-btn.primary {
+  background: var(--accent, #00d4ff);
+  color: #000;
+}
+
+.action-btn.primary:hover:not(:disabled) {
+  background: #00b8e6;
+}
+
+.action-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.download-list {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.download-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.download-item:last-child {
+  border-bottom: none;
+}
+
+.download-item.installed {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.download-info h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.download-size {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.installed-icon {
+  color: #4caf50;
+}
+
+.download-progress {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent, #00d4ff);
+  transition: width 0.2s;
+}
+
+.progress-details {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.error-text {
+  color: #f44336;
+}
+
+.progress-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-complete {
+  color: #4caf50;
+}
+
+.status-error {
+  color: #f44336;
+}
+
+.status-verifying {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.cancel-btn {
+  background: rgba(244, 67, 54, 0.2);
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: #f44336;
+}
+
+.cancel-btn:hover {
+  background: rgba(244, 67, 54, 0.4);
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 212, 255, 0.2);
+  border: 1px solid var(--accent, #00d4ff);
+  border-radius: 6px;
+  color: var(--accent, #00d4ff);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.download-btn:hover {
+  background: rgba(0, 212, 255, 0.3);
+}

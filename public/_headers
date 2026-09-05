@@ -1,0 +1,4 @@
+# Netlify/Cloudflare headers for SharedArrayBuffer support
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
