@@ -280,13 +280,122 @@ const TEMPORAL_OPTIONS = {
 
 export const useProjectStore = create<ProjectState & ProjectActions>()(
   temporal(
-    immer((set) => ({
+    immer((set, get) => ({
       ...initialState,
       
       initializeFromDB: async () => {},
-      addMediaFiles: async () => {},
-      removeMediaFile: () => {},
-      setAspectRatio: () => {},
+      addMediaFiles: async (files: File[]) => {
+        const validFiles: MediaFile[] = [];
+        const errors: string[] = [];
+        
+        for (const file of files) {
+          const validation = validateFile(file);
+          if (!validation.valid) {
+            errors.push(`${file.name}: ${validation.error}`);
+            continue;
+          }
+          
+          try {
+            const isImage = file.type.startsWith('image/');
+            const mediaType: 'image' | 'audio' = isImage ? 'image' : 'audio';
+            const id = generateId('media');
+            
+            // Generate proxy for images
+            let proxyUrl: string | undefined;
+            let proxyBlob: Blob | undefined;
+            let width: number | undefined;
+            let height: number | undefined;
+            
+            if (isImage) {
+              const dataUrl = await generateProxy(file);
+              const response = await fetch(dataUrl);
+              proxyBlob = await response.blob();
+              proxyUrl = createObjectURL(proxyBlob);
+              activeObjectUrls.add(proxyUrl);
+              
+              // Get dimensions from the image
+              const img = new Image();
+              await new Promise<void>((resolve, reject) => {
+                img.onload = () => resolve();
+                img.onerror = () => reject(new Error('Failed to load image'));
+                img.src = dataUrl;
+              });
+              width = img.width;
+              height = img.height;
+            }
+            
+            // Save to IndexedDB
+            await saveMediaFile(id, file, {
+              name: file.name,
+              type: mediaType,
+              proxyBlob,
+              width,
+              height,
+              duration: undefined,
+              description: undefined,
+              hookScore: undefined,
+            });
+            
+            // Create MediaFile object with object URL for original
+            const originalUrl = createObjectURL(file);
+            activeObjectUrls.add(originalUrl);
+            
+            validFiles.push({
+              id,
+              name: file.name,
+              type: mediaType,
+              file,
+              proxyUrl,
+              originalUrl,
+              width,
+              height,
+            });
+          } catch (err) {
+            errors.push(`${file.name}: Failed to process - ${(err as Error).message}`);
+          }
+        }
+        
+        if (errors.length > 0) {
+          console.warn('File ingestion errors:', errors);
+        }
+        
+        set((s) => {
+          s.mediaFiles = [...s.mediaFiles, ...validFiles];
+        });
+      },
+      
+      removeMediaFile: (id: string) => {
+        const state = get();
+        const file = state.mediaFiles.find(f => f.id === id);
+        
+        if (file) {
+          // Revoke object URLs
+          if (file.proxyUrl) {
+            revokeObjectURL(file.proxyUrl);
+            activeObjectUrls.delete(file.proxyUrl);
+          }
+          if (file.originalUrl) {
+            revokeObjectURL(file.originalUrl);
+            activeObjectUrls.delete(file.originalUrl);
+          }
+          
+          // Delete from IndexedDB
+          deleteMediaFile(id);
+          
+          // Remove from state and cascade invalidation
+          set((s) => {
+            s.mediaFiles = s.mediaFiles.filter(f => f.id !== id);
+          });
+          _cascadeInvalidation(set, get, 'mediaFiles');
+        }
+      },
+      
+      setAspectRatio: (ratio: AspectRatio) => {
+        set((s) => {
+          s.aspectRatio = ratio;
+        });
+        _cascadeInvalidation(set, get, 'mediaFiles');
+      },
       generateGroups: async () => {},
       updateGroup: () => {},
       mergeGroups: () => {},

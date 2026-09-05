@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
+    allowedHosts: true,
     headers: {
       // Required for SharedArrayBuffer (multi-threaded WASM)
       'Cross-Origin-Opener-Policy': 'same-origin',

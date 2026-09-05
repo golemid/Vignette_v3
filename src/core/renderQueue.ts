@@ -121,10 +121,14 @@ async function relinkMediaForProject(
   projectData: VignetteProjectFile,
   dirHandle: FileSystemDirectoryHandle
 ): Promise<void> {
-  // Scan directory for files
+  // Scan directory for files - use type assertion for TypeScript compatibility
   const foundFiles: Map<string, File> = new Map();
   
-  for await (const entry of dirHandle.values()) {
+  // FileSystemDirectoryHandle iteration via entries() or values()
+  // Type assertion needed as lib.dom.d.ts may not have full FS Access API types
+  const dirHandleAny = dirHandle as any;
+  
+  for await (const entry of dirHandleAny.values()) {
     if (entry.kind === 'file') {
       const file = await entry.getFile();
       foundFiles.set(file.name, file);
