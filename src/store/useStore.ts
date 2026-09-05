@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { temporal } from 'zundo';
+import { validateFile, generateProxy, generateId } from '../utils/fileUtils';
+import { saveMediaFile, deleteMediaFile, createObjectURL, revokeObjectURL } from '../utils/idb';
 
 export type AspectRatio = '9:16' | '16:9';
 export type ExecutionMode = 'auto-pilot' | 'step-by-step';
